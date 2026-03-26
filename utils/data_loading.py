@@ -14,6 +14,10 @@ PRODUCT_CATEGORY_TRANSLATION_FILE = (
     "./data/product_category_name_translation.csv"
 )
 
+REVIEWS_POSITIVOS_FILE = "./data/reviews/matriz_positiva.csv"
+REVIEWS_NEGATIVOS_FILE = "./data/reviews/matriz_negativa.csv"
+FORECAST_FILE = "./data/forecast/combined_labeled_df.csv"
+
 
 def read_csvs_from_data(file_path: str) -> pd.DataFrame:
     """Read a CSV file from the given path and return as a dataframe."""
@@ -22,7 +26,7 @@ def read_csvs_from_data(file_path: str) -> pd.DataFrame:
 
 def merge_ecommerce_data() -> pd.DataFrame:
     """
-    Read and merge orders, items, products, and reviews dataframes.
+    Read and merge orders, items, products, reviews, and customers dataframes.
 
     Returns a merged dataframe with all relevant information.
     """
@@ -30,6 +34,7 @@ def merge_ecommerce_data() -> pd.DataFrame:
     items = read_csvs_from_data(ORDER_ITEMS_FILE)
     products = read_csvs_from_data(PRODUCTS_FILE)
     reviews = read_csvs_from_data(ORDER_REVIEWS_FILE)
+    customers = read_csvs_from_data(CUSTOMERS_FILE)
 
     # Merge orders with items
     merged = orders.merge(items, on="order_id", how="left")
@@ -39,5 +44,8 @@ def merge_ecommerce_data() -> pd.DataFrame:
 
     # Merge with reviews
     merged = merged.merge(reviews, on="order_id", how="left")
+
+    # Merge with customers
+    merged = merged.merge(customers, on="customer_id", how="left")
 
     return merged
