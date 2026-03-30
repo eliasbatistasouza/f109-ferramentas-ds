@@ -6,6 +6,13 @@ Este é um projeto de demonstração para a disciplina de Ferramentas de Data Sc
 
 O projeto utiliza o dataset público **Olist Brazilian E-Commerce**, que contém informações sobre pedidos, clientes, produtos, pagamentos e avaliações de uma plataforma de e-commerce brasileira.
 
+## 🌐 Deploy
+
+A aplicação está disponível em produção no Streamlit Cloud:
+
+
+<a href="https://ferramentas-ds.streamlit.app/" target="_blank"><img src="https://img.shields.io/badge/streamlit-Ratings Dashboard-ff5d5d?style=for-the-badge&logo=streamlit&logoColor=white" alt="website badge"></a>
+
 ## 🚀 Tecnologias Utilizadas
 
 - **Python 3.12** - Linguagem de programação
